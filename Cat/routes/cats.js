@@ -75,6 +75,27 @@ cats.catcolor = function(req, res){
 };
 
 
+cats.catage = function(req, res){
+  
+  catdb.find(function (err, catlist) {
+  var newlist = []
+  if (err) return console.error(err);
+  
+  for (var i = 0; i < catlist.length; i++) {
+    if (catlist[i].age < 10 && catlist[i].age > 5) {
+      console.log(catlist[i])
+      newlist.push(catlist[i])
+    };
+  }; 
+
+      res.render("catlist", {
+        message: "Young Cats (5-10 years old)",
+        cats:newlist
+      });
+  })
+};
+
+
 cats.deletecat = function(req, res){
 
   catdb.find(function (err, catlist) {

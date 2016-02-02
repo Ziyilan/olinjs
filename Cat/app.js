@@ -27,5 +27,6 @@ app.get('/cats/new', cats.newcats);
 app.get('/cats', cats.listcats);
 app.get('/cats/bycolor/:color', cats.catcolor);
 app.get('/cats/delete/old', cats.deletecat);
+app.get('/cats/age', cats.catage);
 
 app.listen(3000);
